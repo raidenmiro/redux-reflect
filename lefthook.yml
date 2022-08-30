@@ -1,0 +1,12 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '*.{js,ts,jsx,tsx}'
+      run: pnpm prettier --write {staged_files}
+    lint:
+      glob: '*.{js,ts,jsx,tsx}'
+      run: pnpm eslint --fix {staged_files}
+  scripts:
+    'commit-lint':
+      runner: bash

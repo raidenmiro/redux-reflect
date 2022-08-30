@@ -1,0 +1,66 @@
+{
+  "name": "redux-reflect",
+  "version": "0.0.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "author": "Robert Kuzhin",
+  "bugs": "https://github.com/raidenmiro/redux-reflect/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raidenmiro/redux-reflect"
+  },
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "node": "./dist/cjs/index.js",
+      "require": "./dist/csj/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "scripts": {
+    "commit": "cz",
+    "lint": "eslint --fix \"./src/**/**.{ts, tsx}\"",
+    "format": "prettier --write \"./src/**/**.{ts, tsx}\"",
+    "build": "NODE_ENV=production rollup -c rollup.config.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.13",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@semantic-release/github": "^8.0.6",
+    "@semantic-release/npm": "^9.0.1",
+    "@swc/core": "^1.2.245",
+    "@types/node": "^18.7.13",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "commitizen": "^4.2.5",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "8.22.0",
+    "eslint-kit": "^6.6.0",
+    "lefthook": "^1.1.1",
+    "prettier": "^2.7.1",
+    "prettier-config-standard": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "rollup": "^2.79.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-swc3": "^0.4.1",
+    "semantic-release": "^19.0.5",
+    "typescript": "^4.6.4",
+    "vitest": "^0.22.1"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": ">=8.0.2",
+    "redux": ">=4.2.0"
+  },
+  "dependencies": {}
+}
