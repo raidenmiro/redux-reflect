@@ -99,7 +99,7 @@ const Content = splitView({
 or multi select
 
 ```tsx
-const Content = bindView({
+const Content = splitView({
   selector: (state: StateGeneric) => ({
     loading: state.loading,
     tasks: state.tasks,
