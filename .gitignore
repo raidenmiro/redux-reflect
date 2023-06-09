@@ -25,4 +25,4 @@ dist-ssr
 
 # vitepress
 .vitepress/dist
-.vitepress/cache
+cache

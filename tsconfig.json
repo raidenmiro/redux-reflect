@@ -1,9 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": false,
@@ -16,12 +15,19 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "jsxImportSource": "react",
     "strictNullChecks": true,
     "outDir": "./dist",
-    "baseUrl": ".",
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "types": ["vitest/globals"]
   },
   "include": [
     "src",
+    "tests"
   ],
   "exclude": ["*.test.ts", "*.test.tsx", "*.spec.ts", "*.spec.tsx", "./node_modules", "./dist"],
 }

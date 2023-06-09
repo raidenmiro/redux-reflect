@@ -14,6 +14,7 @@ module.exports = configure({
     rules: {
       '@typescript-eslint/consistent-type-imports': 'error',
       '@typescript-eslint/no-inferrable-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off',
       'prefer-let/prefer-let': 2,
       'prefer-const': 'off',
     },

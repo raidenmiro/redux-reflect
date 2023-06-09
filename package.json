@@ -1,6 +1,7 @@
 {
   "name": "redux-reflect",
   "version": "0.0.0",
+  "type": "module",
   "license": "MIT",
   "sideEffects": false,
   "author": "Robert Kuzhin",
@@ -9,58 +10,77 @@
     "type": "git",
     "url": "https://github.com/raidenmiro/redux-reflect"
   },
+  "keywords": [
+    "redux",
+    "redux-reflect",
+    "react-redux"
+  ],
+  "unpkg": "./dist/redux-reflect.umd.js", 
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "node": "./dist/cjs/index.js",
-      "require": "./dist/csj/index.js",
-      "import": "./dist/esm/index.js",
-      "default": "./dist/esm/index.js"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/redux-reflect.cjs",
+      "import": "./dist/redux-reflect.esm.js",
+      "default": "./dist/redux-reflect.esm.js"
     }
   },
   "scripts": {
+    "prepare": "lefthook install && pnpm build",
+    "test": "vitest",
+    "test:typecheck": "vitest typecheck",
     "commit": "cz",
     "lint": "eslint --fix \"./src/**/**.{ts, tsx}\"",
     "format": "prettier --write \"./src/**/**.{ts, tsx}\"",
-    "build": "NODE_ENV=production rollup -c rollup.config.js"
+    "build": "microbundle build",
+    "docs:dev": "cd ./docs && pnpm dev",
+    "docs:build": "cd ./docs && pnpm build",
+    "docs:links": "node ./scripts/combine.links.mjs"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.13",
-    "@babel/preset-react": "^7.18.6",
-    "@babel/preset-typescript": "^7.18.6",
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@semantic-release/github": "^8.0.6",
-    "@semantic-release/npm": "^9.0.1",
-    "@swc/core": "^1.2.245",
-    "@types/node": "^18.7.13",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "commitizen": "^4.2.5",
+    "@commitlint/cli": "^17.6.5",
+    "@commitlint/config-conventional": "^17.6.5",
+    "@semantic-release/github": "^8.1.0",
+    "@semantic-release/npm": "^9.0.2",
+    "@size-limit/preset-small-lib": "^8.2.6",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@types/node": "^18.16.16",
+    "@types/react": "^18.2.8",
+    "@types/react-dom": "^18.2.4",
+    "@vitest/ui": "^0.31.4",
+    "chalk": "^5.2.0",
+    "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "8.22.0",
-    "eslint-kit": "^6.6.0",
-    "lefthook": "^1.1.1",
-    "prettier": "^2.7.1",
+    "eslint": "^8.42.0",
+    "eslint-kit": "^9.2.0",
+    "eslint-plugin-prefer-let": "^3.0.1",
+    "jsdom": "^22.1.0",
+    "lefthook": "^1.4.1",
+    "microbundle": "^0.15.1",
+    "prettier": "^2.8.8",
     "prettier-config-standard": "^5.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": "^8.0.2",
-    "redux": "^4.2.0",
-    "rollup": "^2.79.0",
-    "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-swc3": "^0.4.1",
+    "redux": "^4.2.1",
     "semantic-release": "^19.0.5",
-    "typescript": "^4.6.4",
-    "vitest": "^0.22.1"
+    "size-limit": "^8.2.6",
+    "typescript": "^4.9.5",
+    "vitest": "^0.30.1"
   },
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-redux": ">=8.0.2",
-    "redux": ">=4.2.0"
+    "react": ">=18.2.0",
+    "react-redux": ">=8.0.2"
   },
-  "dependencies": {}
+  "size-limit": [
+    {
+      "name": "root cjs module",
+      "path": "dist/redux-reflect.cjs",
+      "limit": "1 KB"
+    },
+    {
+      "name": "root es module",
+      "path": "dist/redux-reflect.js",
+      "limit": "1 KB"
+    }
+  ]
 }
